@@ -1,6 +1,8 @@
 aiogram~=2.18
 aioredis~=2.0
 environs~=9.0
+fastapi~=0.87.0
+uvicorn~=0.20.0
 git+https://github.com/TimNekk/aiogram_broadcaster.git
 gino
 loguru
