@@ -12,6 +12,8 @@ services:
     - .:/usr/src/app/${BOT_NAME:-tg_bot}
     command: python3 -m bot
     restart: always
+    ports:
+      - 127.0.0.1:${WH_PORT}:${WH_PORT}
     env_file:
       - ".env"
     depends_on:
@@ -28,8 +30,6 @@ services:
         - POSTGRES_PASSWORD=${DB_PASS}
         - POSTGRES_DB=${DB_NAME}
     restart: always
-    ports:
-      - "${DB_EXPOSE_PORT:-5432}:5432"
     networks:
       - tg_bot
     volumes:
