@@ -33,7 +33,7 @@ services:
     networks:
       - tg_bot
     volumes:
-      - ./postgres:/var/lib/postgresql
+      - ./data/postgres:/var/lib/postgresql
 
   redis:
     container_name: "${REDIS_CONTAINER_NAME:-redis-container}"
@@ -43,7 +43,7 @@ services:
     networks:
       - tg_bot
     volumes:
-      - ./redis:/data
+      - ./data/redis:/data
 
 
 

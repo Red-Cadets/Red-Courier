@@ -58,8 +58,13 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.env*
 
 # Pyre type checker
 .pyre/
 .idea/*
-.env*
+
+# Data dir
+!data
+!data/.keep
+data/

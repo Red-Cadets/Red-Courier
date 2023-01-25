@@ -34,7 +34,7 @@ def setup(file_name: str = "log.log", rotation: time = time(), retention: timede
     # Setup loguru
     logger.remove()
     logger.add(sys.stderr, level="INFO")
-    logger.add(f"logs/{file_name}", rotation=rotation, retention=retention, level="DEBUG")
+    logger.add(f"data/logs/{file_name}", rotation=rotation, retention=retention, level="DEBUG")
 
     # Send default logging to loguru
     logging.basicConfig(handlers=[InterceptHandler()], level=0)
