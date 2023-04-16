@@ -5,7 +5,7 @@ from aiogram.types import Update
 from uvicorn import run
 from loguru import logger
 
-from tgbot.config import load_config
+from tgbot.config import get_config
 from tgbot import filters
 from tgbot import handlers
 from tgbot import middlewares
@@ -16,11 +16,11 @@ from tgbot.models.chat_tg import ChatTG
 from tgbot.services.broadcasting import send_to_admins
 from tgbot.services.setting_commands import set_bot_command
 
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI
 from typing import Dict
 from tgbot.webhook.api import wh_router
 
-config = load_config(".env")
+config = get_config()
 
 logging.setup(config.log.file_name, config.log.rotation, config.log.retention)
 
@@ -38,7 +38,7 @@ dp = Dispatcher(bot, storage=storage)
 
 app = FastAPI()
 
-app.include_router(wh_router, prefix=f'/{config.wh.key}', tags=["webhook"])
+app.include_router(wh_router, tags=["webhook"])
 
 WEBHOOK_URL = f'{config.wh.url}/bot/{config.tg_bot.token}'
 
