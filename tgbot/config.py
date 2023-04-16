@@ -21,6 +21,7 @@ class CommandInfo:
 
 @dataclass
 class Commands:
+    help: CommandInfo
     send_all: CommandInfo
     ping: CommandInfo
     status: CommandInfo
@@ -106,6 +107,7 @@ def load_config(path: str | None = None) -> Config:
             dev_chat_id=env.str("DEV_CHAT"),
             subscription_channels_ids=list(map(int, env.list("SUBSCRIPTION_CHANNELS_IDS"))),
             commands=Commands(
+                help=CommandInfo("help", "Справка"),
                 send_all=CommandInfo("send_all", "Рассылка", is_admin=True),
                 ping=CommandInfo("ping", "Пинг", is_admin=True),
                 status=CommandInfo("status", "Статус", is_admin=True),
