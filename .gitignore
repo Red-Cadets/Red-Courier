@@ -63,6 +63,7 @@ venv.bak/
 # Pyre type checker
 .pyre/
 .idea/*
+.vscode/settings.json
 
 # Data dir
 !data
