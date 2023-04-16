@@ -4,6 +4,7 @@ from typing import List, Optional, Generator
 
 from aiogram.types import BotCommand
 from environs import Env
+import os
 
 
 @dataclass
@@ -138,3 +139,9 @@ def load_config(path: str | None = None) -> Config:
         ),
         misc=Miscellaneous()
     )
+
+def get_config() -> Config:
+    if os.getenv('MODE') == 'DEV':
+        return load_config(".env.dev")
+    else:
+        return load_config(".env")
