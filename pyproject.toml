@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "red-courier"
+version = "0.1.0"
+description = ""
+authors = ["b1n4r9 <lex.sd6@gmail.com>"]
+readme = "README.md"
+packages = [{include = "red_courier"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.95.1"
+aiogram = "^2.25.1"
+aioredis = "^2.0.1"
+environs = "^9.5.0"
+uvicorn = "^0.21.1"
+gino = "^1.0.1"
+loguru = "^0.7.0"
+alembic = "^1.10.3"
+psycopg2 = "^2.9.6"
+validators = "^0.20.0"
+aiogram-broadcaster = "^0.0.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
