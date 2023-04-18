@@ -17,6 +17,12 @@ def migrate_db():
 
     subprocess.run(("alembic", "upgrade", "head"))
 
+@cli.command("makemigrations")
+def make_db_migrations():
+    """Make database migrations"""
+    import subprocess
+
+    subprocess.run(("alembic", "revision", "--autogenerate", "-m", "auto", "--head", "head"))
 
 @cli.command("run")
 def run_server(
