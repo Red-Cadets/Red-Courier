@@ -27,6 +27,9 @@ class Commands:
     status: CommandInfo
     init_main: CommandInfo
     init_dev: CommandInfo
+    mute_latest: CommandInfo
+    unmute_latest: CommandInfo
+    services: CommandInfo
 
     def __iter__(self) -> Generator[CommandInfo, None, None]:
         return (getattr(self, field.name) for field in fields(self))
@@ -113,6 +116,9 @@ def load_config(path: str | None = None) -> Config:
                 status=CommandInfo("status", "Статус", is_admin=True),
                 init_main=CommandInfo("init_main", "Установить MAIN ID", is_admin=True),
                 init_dev=CommandInfo("init_dev", "Установить DEV ID", is_admin=True),
+                mute_latest=CommandInfo("mute_latest", "Заглушить последний сервис", is_admin=True),
+                unmute_latest=CommandInfo("unmute_latest", "Включить последний сервис", is_admin=True),
+                services=CommandInfo("services", "Список сервисов", is_admin=True),
             ),
         ),
         wh=WebhookServer(
