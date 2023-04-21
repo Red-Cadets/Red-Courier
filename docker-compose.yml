@@ -11,7 +11,7 @@ services:
     command: python3 manage.py run
     volumes:
       - ./data/logs:/usr/src/app/data/logs/
-    restart: always
+    restart: unless-stopped
     ports:
       - 127.0.0.1:${WH_PORT}:${WH_PORT}
     env_file:
