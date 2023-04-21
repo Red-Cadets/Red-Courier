@@ -27,7 +27,7 @@ def make_db_migrations():
 @cli.command("run")
 def run_server(
     port: int = config.wh.port,
-    host: str = "localhost",
+    host: str = "0.0.0.0",
     log_level: str = "debug",
     reload: bool = config.wh.debug,
 ):
