@@ -21,6 +21,7 @@ validators = "^0.20.0"
 aiogram-broadcaster = "^0.0.7"
 typer = "^0.7.0"
 redis = "^4.5.4"
+minio = "^7.1.14"
 
 
 [build-system]

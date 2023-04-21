@@ -57,6 +57,15 @@ class RedisConfig:
 
 
 @dataclass
+class StorageConfig:
+    is_enabled: bool
+    bucket: str
+    endpoint: str
+    access_key: str
+    secret_key: str
+
+
+@dataclass
 class TgBot:
     token: str
     admin_ids: List[int]
@@ -93,6 +102,7 @@ class Config:
     wh: WebhookServer
     db: DbConfig
     redis: RedisConfig
+    storage: StorageConfig
     log: LogConfig
     misc: Miscellaneous
 
@@ -139,6 +149,13 @@ def load_config(path: str | None = None) -> Config:
             password=env.str('REDIS_PASS'),
             port=env.int('REDIS_PORT'),
             pool_size=env.int('REDIS_POOL_SIZE'),
+        ),
+        storage=StorageConfig(
+            is_enabled=env.bool("MINIO_ENABLED"),
+            bucket=env.str("MINIO_BUCKET"),
+            endpoint=env.str("MINIO_ENDPOINT"),
+            access_key=env.str("MINIO_ACCESS_KEY"),
+            secret_key=env.str("MINIO_SECRET_KEY"),
         ),
         log=LogConfig(
             file_name=env.str('LOG_FILE_NAME'),
