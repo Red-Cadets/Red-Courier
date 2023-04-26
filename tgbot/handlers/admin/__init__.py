@@ -9,7 +9,7 @@ from tgbot.handlers.admin import service
 
 def register(dp: Dispatcher) -> None:
     send_all.register(dp)
-    ping.register(dp)
+    # ping.register(dp)
     status.register(dp)
     init_chats.register(dp)
     service.register(dp)

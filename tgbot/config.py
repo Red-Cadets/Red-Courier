@@ -23,7 +23,7 @@ class CommandInfo:
 class Commands:
     help: CommandInfo
     send_all: CommandInfo
-    ping: CommandInfo
+    # ping: CommandInfo
     status: CommandInfo
     init_main: CommandInfo
     init_dev: CommandInfo
@@ -122,7 +122,7 @@ def load_config(path: str | None = None) -> Config:
             commands=Commands(
                 help=CommandInfo("help", "Справка"),
                 send_all=CommandInfo("send_all", "Рассылка", is_admin=True),
-                ping=CommandInfo("ping", "Пинг", is_admin=True),
+                # ping=CommandInfo("ping", "Пинг", is_admin=True),
                 status=CommandInfo("status", "Статус", is_admin=True),
                 init_main=CommandInfo("init_main", "Установить MAIN ID", is_admin=True),
                 init_dev=CommandInfo("init_dev", "Установить DEV ID", is_admin=True),
